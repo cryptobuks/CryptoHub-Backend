@@ -28,6 +28,7 @@ mongoose.connect(process.env.MONGOURI, {useNewUrlParser: true});
 app.use(passport.initialize());
 
 // Routes
+app.get('/', (req, res) => res.send('Hello World'));
 app.use('/user', userRoute);
 app.use('/api/favorite', favoriteRoute);
 
