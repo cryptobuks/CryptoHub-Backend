@@ -67,7 +67,10 @@ router.post('/verify-token', (req, res) => {
     const token = req.headers.authorization;
     const decoded = jwt.verify(token, process.env.HASH_KEY);
     req.userData = decoded;
-    res.json({msg: 'Authentication Successful'});
+    res.json({
+      msg: 'Authentication Successful',
+      userData: req.userData
+    });
   } catch(err) {
     res.json({err: 'Authentication Unsuccesful'});
   }
